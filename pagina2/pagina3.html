@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perdoname bb <3 </title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Cambiamos el color de fondo para que se diferencie de la imagen */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Lobster', cursive; /* Cambiamos la fuente de todas las letras */
+        }
+
+        .container {
+            background-image: url('C:\\Users\\nyx_t\\OneDrive\\Escritorio\\pagina2\\fotos\\fondo.jpg'); /* Cambiamos la URL de la imagen */
+            background-size: cover; /* Esto hace que la imagen cubra todo el fondo */
+            background-position: center; /* Esto centra la imagen en el fondo */
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 80%;
+            border: 2px solid red;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative; /* Añadimos posición relativa para el contenedor */
+        }
+
+        .container img.sticker {
+            max-width: 100%; /* Aseguramos que el sticker no sea más ancho que el contenedor */
+            max-height: 20vh; /* Limitamos la altura máxima del sticker */
+            margin-bottom: 20px; /* Añadimos margen inferior para separarlo del texto */
+        }
+
+        .options {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .options button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: 'Lobster', cursive; /* Aplicamos la fuente a los botones */
+            border: none; /* Quitamos el borde de los botones */
+            border-radius: 5px; /* Añadimos borde redondeado a los botones */
+        }
+
+        .options button.siii {
+            background-color: green; /* Cambiamos el color de fondo a verde */
+            color: white; /* Cambiamos el color del texto a blanco */
+        }
+
+        .options button.nooo {
+            background-color: red; /* Cambiamos el color de fondo a rojo */
+            color: white; /* Cambiamos el color del texto a blanco */
+        }
+
+        h1 {
+            color: red; /* Cambiamos el color del texto a rojo */
+            font-size: 24px; /* Aumentamos el tamaño de la letra */
+            font-weight: bold; /* Hacemos la letra en negrita */
+            text-align: center; /* Centramos el texto */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="file:///C:/Users/nyx_t/OneDrive/Escritorio/pagina2/fotos/cute-sad.gif" alt="Imagen de sticker" class="sticker">
+        <h1>Perdone mi intrusión sin motivo aparente :(( </h1>
+        <p>Esta página es un jardín de emociones, donde cada imagen es una flor que florece con el néctar de nuestro amor.</p>
+        <div class="options">
+            <button class="siii" id="yesButton" onclick="changeContentAndSticker()">Siii, <3 </button>
+            <button class="nooo" id="noButton" onclick="moveButton(this)">Nooo,safo</button>
+        </div>
+    </div>
+
+    <script>
+        var clickCount = 0;
+
+        function moveButton(button) {
+            clickCount++;
+
+            var container = document.querySelector('.container');
+            var containerRect = container.getBoundingClientRect();
+
+            var randomX = Math.random() * (containerRect.width - button.offsetWidth);
+            var randomY = Math.random() * (containerRect.height - button.offsetHeight);
+
+            button.style.position = 'absolute';
+            button.style.left = randomX + 'px';
+            button.style.top = randomY + 'px';
+
+            // Cambiar el texto del botón al tercer clic
+            if (clickCount === 3) {
+                button.innerHTML = "Si vuelves a presionar aquí me enojo contigo >:v";
+            } else if (clickCount === 4) {
+                button.innerHTML = "¡Vuelves a presionar aquí y me enojo más! >:v";
+            } else {
+                button.innerHTML = "ñofii apestoso";
+            }
+
+            // Ocultar botón al quinto clic
+            if (clickCount === 5) {
+                button.style.display = 'none';
+            }
+        }
+
+        function changeContentAndSticker() {
+            var h1 = document.querySelector('h1');
+            h1.textContent = "Siii gracias por perdonarme, te quieroo muchote :3 <3";
+
+            var sticker = document.querySelector('.sticker');
+            sticker.src = "file:///C:/Users/nyx_t/OneDrive/Escritorio/pagina2/fotos/tenor.gif";
+            setTimeout(function() {
+             sticker.src = "file:///C:/Users/nyx_t/OneDrive/Escritorio/pagina2/fotos/peach-goma-love.gif";}, 2000);
+  // Ocultar botones
+            var yesButton = document.getElementById('yesButton');
+            yesButton.style.display = 'none';
+
+            var noButton = document.getElementById('noButton');
+            noButton.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
